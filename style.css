@@ -1,0 +1,81 @@
+
+body{
+    background-color: rgb(92, 92, 92);
+}
+.strong {
+    font-weight: 600;
+}
+
+.block {
+    display: block;
+}
+
+.inline {
+    display: inline-block;
+}
+
+.center {
+    align-items: center;
+}
+
+.container {
+
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+#imgChange {
+    width: 320px;
+    height: 568px;
+
+    background-image: url('./assets/snow.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+/*media full screens for portable devices.*/
+@media screen and (min-width: 412px){
+    #imgChange {
+        width: 412px;
+        height: 732px;
+    }
+}
+
+@media screen and (min-width: 600px){
+    #imgChange {
+        width: 600px;
+        height: 960px;
+    }
+}
+
+@media screen and (min-width: 800px){
+    #imgChange {
+        width: 800px;
+        height: 1280px;
+    }
+}
+
+@media screen and (min-width: 1024px){
+    #imgChange {
+        width: 1024px;
+        height: 1366px;
+    }
+}
+
+/*media app view screens for laptop/desktop*/
+@media screen and (min-width: 1280px){
+    #imgChange {
+        margin-top: 18px;
+        width: 540px;
+        height: 900px;
+    }
+}
+
+
+
+
+
+
+/*smallest responsive size 320px*/

@@ -1,7 +1,8 @@
 /*Openweathermap.org*/
 
 
-const WeatherKey = '002e02371bc693eda7b161253481e4e0';
+
+
 
 var citySelection;
 
@@ -24,8 +25,11 @@ var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + citySelecti
 
 
 
-
-
+//if(depending on weather output change image accordingly)
+// constmediaQuery = window.matchMedia('(whatever the width call is ex: min-width- 600px)')
+// if(mediaQuery.matches){
+//     //do this stuff
+// }
 
 
 
