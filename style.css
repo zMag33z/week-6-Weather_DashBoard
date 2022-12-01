@@ -1,81 +1,118 @@
+/* neat little trick I learned.  First, runs the imported css file.*/
+@import url('./reset.css');
 
-body{
-    background-color: rgb(92, 92, 92);
-}
-.strong {
-    font-weight: 600;
+/*  */
+
+#img-Change {
+
+    background-image: url('./assets/snow.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 42%;
 }
 
-.block {
-    display: block;
+.contain-Weather {
+    display: grid;
+    grid-gap: 75px;
+    grid-template-areas:
+    'currentT'
+    'currentW'
+    'hourly'
+    'days';
+    
+}
+
+.current-CT {
+    grid-area: currentT;
+    margin-right: auto;
+    margin-top: 15px;
+    padding: 10px;
+    text-align: center;
+}
+
+.current-CW {
+    grid-area: currentW;
+    margin-left: auto;
+    padding: 10px;
+    text-align: center;
+
+}
+
+.contain-Hourly {
+    grid-area: hourly;
+    padding: 0 auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.contain-Days {
+    grid-area: days;
+    margin-left: auto;
+    padding: 10px;
+    text-align: center;
+}
+
+.Tomorrow {
+    grid-area: tomorrow;
+
+}
+
+.day-After-Tom {
+    grid-area: dayaftertom;
 }
 
 .inline {
     display: inline-block;
 }
 
-.center {
-    align-items: center;
+.padding {
+    width: 42px;
 }
 
-.container {
-
-    display: flex;
-    justify-content: center;
-    text-align: center;
+.grey {
+    background-color: grey;
 }
 
-#imgChange {
-    width: 320px;
-    height: 568px;
-
-    background-image: url('./assets/snow.png');
-    background-repeat: no-repeat;
-    background-size: cover;
+button {
+    width: 2rem;
+    aspect-ratio: 1;
+    position: absolute;
+    top: 15px;
+    right: 15px;
 
 }
-
 /*media full screens for portable devices.*/
-@media screen and (min-width: 412px){
-    #imgChange {
-        width: 412px;
-        height: 732px;
+
+@media (min-width: 412px){
+    #img-Change {
+        background-position: 30%;
     }
 }
 
-@media screen and (min-width: 600px){
-    #imgChange {
-        width: 600px;
-        height: 960px;
+@media (min-width: 600px){
+    #img-Change {
+        background-position-y: 50%;
     }
 }
 
-@media screen and (min-width: 800px){
-    #imgChange {
-        width: 800px;
-        height: 1280px;
+@media (min-width: 800px){
+    #img-Change {
+        background-position: center top;
     }
 }
 
-@media screen and (min-width: 1024px){
-    #imgChange {
-        width: 1024px;
-        height: 1366px;
-    }
-}
-
-/*media app view screens for laptop/desktop*/
-@media screen and (min-width: 1280px){
-    #imgChange {
-        margin-top: 18px;
-        width: 540px;
-        height: 900px;
+@media (min-width: 1024px){
+    #img-Change {
+        background-position-y: 25%;
     }
 }
 
 
 
-
-
-
-/*smallest responsive size 320px*/
+@media screen and (width: 1280px){
+    #img-Change {
+        background-position: 80% 20%; 
+      
+    }
+}

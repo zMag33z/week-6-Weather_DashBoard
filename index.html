@@ -5,71 +5,94 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./reset.css">
     <link rel="stylesheet" href="./style.css">
 </head>
-<body>
+<body id="img-Change">
 
-<div class="container">
+    <button></button>
 
-        <div id="imgChange">
-            <div class="cityCurrent">
-                <h3 class="location">testing</h3>
-                <p class="weather">Snow</p>
-                <p class="temp">34°F</p>
-                <p class="inline">Pressure:  <span id="pressure"></span></p>
-                <span>|</span>
-                <p class="inline">Humidity:  <span id="humidity"></span></p>
+        <div class="contain-Weather">
+            <div class="current-CT grey">
+                <h1 class="location">City, ST</h1>
+                <p id="time">TI:ME:TI me</p>
             </div>
 
-            <div class="hourly">
-                <div class="inline">
-                    <p class="strong">Current</p>
+            <div class="current-CW grey">
+                <h2 id="current">Currently:</h2>
+                <p id="weather">Snow</p>
+                <p id="temp">34°F</p>
+                <p>Pressure:&nbsp;&nbsp;<span id="pressure"></span></p>
+                <p>Humidity:&nbsp;&nbsp;<span id="humidity"></span></p>
+            </div>            
+
+            <div class="contain-Hourly grey">
+                <h2 id="forecast">Six hour daily forecast:</h2>
+                
+                <div class="inline padding">
+                    <h3 id="time-now">Now</h3>
                     <p>I</p>
-        <!-- REMOVE <p>I</p> <img id="icon" src="" alt="" />-->
-                    <p id="Ctemp" class="strong">33°F</p>
+    <!-- REMOVE <p>I</p> <img id="icon" src="" alt="" />-->
+                    <p id="temp-c">33°F</p>
                 </div>
 
-                <div class="inline">
-                    <p class="strong">2pm</p>
+                <div class="inline padding">
+                    <h3 id="time-1">2pm</h3>
                     <p>I</p>
-        <!-- REMOVE <p>I</p> ABOVE <img id="icon" src="" alt="" />-->
-                    <p id="1temp" class="strong">89°F</p>
+    <!-- REMOVE <p>I</p> ABOVE <img id="icon" src="" alt="" />-->
+                    <p id="temp-1">89°F</p>
                 </div>
 
-                <div class="inline">
-                    <p class="strong">3pm</p>
+                <div class="inline padding">
+                    <h3 id="time-2">3pm</h3>
                     <p>I</p>
-        <!-- REMOVE <p>I</p> <img id="icon" src="" alt="" />-->
-                    <p id="2temp" class="strong">89°F</p>
+    <!-- REMOVE <p>I</p> <img id="icon" src="" alt="" />-->
+                    <p id="temp-2">89°F</p>
                 </div>
 
-                <div class="inline">
-                    <p class="strong">4pm</p>
+                <div class="inline padding">
+                    <h3 id="time-3">4pm</h3>
                     <p>I</p>
-        <!-- REMOVE <p>I</p> <img id="icon" src="" alt="" />-->
-                    <p id="3temp" class="strong">89°F</p>
+    <!-- REMOVE <p>I</p> <img id="icon" src="" alt="" />-->
+                    <p id="temp-3">89°F</p>
                 </div>
 
-                <div class="inline">
-                    <p class="strong">5pm</p>
+                <div class="inline padding">
+                    <h3 id="time-4">5pm</h3>
                     <p>I</p>
-        <!-- REMOVE <p>I</p> <img id="icon" src="" alt="" />-->
-                    <p id="4temp" class="strong">89°F</p>
+    <!-- REMOVE <p>I</p> <img id="icon" src="" alt="" />-->
+                    <p id="temp-4">89°F</p>
                 </div>
 
-                <div class="inline">
-                    <p class="strong">6pm</p>
+                <div class="inline padding">
+                    <h3 id="time-5">6pm</h3>
                     <p>I</p>
-        <!-- REMOVE <p>I</p> <img id="icon" src="" alt="" />-->
-                    <p id="5temp" class="strong">89°F</p>
+    <!-- REMOVE <p>I</p> <img id="icon" src="" alt="" />-->
+                    <p id="temp-5">89°F</p>
+                </div>            
+            </div>
+
+            <div class="contain-Days grey">
+                <div class="Tomorrow">
+                    <h2 class="forecast">Tomorrow:</h2>
+                    <p class="inline">I</p>
+                    <p id="high-tomorrow"class="inline strong">78 -</p>
+                    <p class="inline strong">High</p>
+                    <p id="low-tomorrow" class="inline strong">47 -</p>
+                    <p class="inline strong">Low</p>  
+                </div>
+
+                <div class="day-After-Tom">
+                    <h2 class="forecast">Day after Tomorrow:&nbsp;</h2>
+                    <p class="inline">I</p>
+                    <p id="high-d-a-tomorrow" class="inline strong">72 -</p>
+                    <p class="inline strong">High</p>
+                    <p id="low-d-a-tomorrow" class="inline strong">43 -</p>
+                    <p class="inline strong">Low</p>
                 </div>
             </div>
+
         </div>
 
-        <!--DONT FORGET display tomorrow and day after tomorrow here.-->
-
-</div>
 
 
     <script src="./script.js"></script>
