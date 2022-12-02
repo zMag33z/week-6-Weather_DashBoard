@@ -1,13 +1,13 @@
 /* root variable directory !special */
 :root {
-    --myBG: grey;
+    --myBG: rgb(255, 255, 255);
 }
 
 /* no padding or margins please and preferred font size */
 * {
     margin: 0;
     padding: 0;
-    font-size: 16px;
+    font-size: 2vh;
 
 }
 
@@ -18,13 +18,13 @@ body, html {
 }
 
 h1 {
-    font-size: 30px;
+    font-size: 5.9vh;
 }
 
 h2 {
-    font-size: 21px;
+    font-size: 3.0vh;
 }
 
 h3 {
-    font-size: 18px;
+    font-size: 2.5vh;
 }
