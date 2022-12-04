@@ -15,6 +15,8 @@
 /* Parent to all other containers */
 .contain-Weather {
     display: grid;
+    width: 100vw;
+    height: 100vh;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 8vmax;
     grid-template-areas:
@@ -22,12 +24,12 @@
     'currentW currentW currentW'
     'hourly hourly hourly'
     'days days days';
+    align-content: center;
 }
 /* Current Time */
 .current-CT {
     grid-area: currentT;
     margin-right: auto;
-    margin-top: 15px;
     padding: 10px;
 }
 
@@ -82,8 +84,8 @@
 }
 
 /* Add City pop up box mobile, input box show desktop*/
-/*button opens selection box*/
-#myButton-Open {
+/*button opens and closes selection box*/
+#myButton-OpenClose {
     --b: calc(3.2px + .25vmax); /* the thickness of symbol created */
     width: calc(32px + 1vmax); /* the size of border around and including symbol */
     aspect-ratio: 1; /* calls height to be same as width. */
@@ -97,7 +99,10 @@
     top: 15px;
     right: 15px;
     opacity: .75;
+}
+#myButton-OpenClose[aria-expanded="true"]{
     transform: rotate(45deg);
+    transition: transform 350ms;
 }
 /*city selection box*/
 #Selection {
@@ -106,7 +111,11 @@
     border-radius: 0 0 0 5px;
     background: hsl(0 0% 0% / .8);
     padding: 15px;
-    display: none;
+    transform: translateX(100%);
+    transition: transform 350ms ease-in-out;
+}
+#Selection[data-visible="true"] {
+    transform: translateX(0%);
 }
 /*Form input field*/
 #user-Selected {
@@ -159,6 +168,9 @@
     }
     p {
     font-size: calc(.25rem + 3.5vmin);
+    }
+    .contain-Weather {
+        grid-gap: 4vmax; 
     }
 }
 @media (min-width: 360px){

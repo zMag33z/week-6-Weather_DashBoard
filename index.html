@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+    <script src="./script.js" defer></script>
 </head>
 <body>
 
     <div id="img-Change">
-
 
         <div class="contain-Weather">
 
@@ -18,7 +18,6 @@
                 <h1 class="location">City, ST</h1>
                 <p id="time">TI:ME:TI me</p>
             </div>
-
 
             <div class="current-CW myContainerBG">
                 <h2 id="current">Currently:</h2>
@@ -96,8 +95,8 @@
 
         </div><!--Close contain-Weather-->
 
-<!--Though located on top, this has to be down here, to be on top of everything else-->
-        <section id="Selection" aria-expanded="false">
+<!--Though located on top, this has to be down here, to be on top of everything else.  could fix it with zindex-->
+        <section id="Selection" data-visible="false" aria-expanded="false">
             <form id="user-Selected" class="selected">
                 <label id="city" for="CitySelection">Add a City&nbsp;</label>
                 <input id="city-Input" type="text" autocomplete="on" required>
@@ -109,13 +108,12 @@
         </section>
 
 <!--Button opens city add section-->        
-        <button aria-controls="Selection" id="myButton-Open">
+        <button  id="myButton-OpenClose" aria-controls="Selection" data-turn="false" aria-expanded="false">
             <span id="screenRead">Menu</span>
         </button>
 
     </div><!--Close img-Change-->
 
-    <script src="./script.js"></script>
 </body>
 </html>
 
