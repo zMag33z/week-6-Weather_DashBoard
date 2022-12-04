@@ -147,7 +147,7 @@
     }
 }
 /*this is my iphone setting for more understanding*/
-@media (min-width: 320px) and (max-height: 480px){
+@media (min-width: 320px) and (max-height: 569px){
     h1 {
     font-size: calc(1rem + 3.5vmin);
     }
