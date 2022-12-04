@@ -1,3 +1,5 @@
+/*Loads more styling could be added.  Trying different ideas clearly down below.*/
+/*I can see why people plug and play templates and what not.*/
 /* neat little trick I learned.  First, runs the imported css file.*/
 @import url('./utility.css');
 
@@ -13,12 +15,13 @@
 /* Parent to all other containers */
 .contain-Weather {
     display: grid;
-    grid-gap: 75px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 8vmax;
     grid-template-areas:
-    'currentT'
-    'currentW'
-    'hourly'
-    'days';    
+    'currentT currentT currentT'
+    'currentW currentW currentW'
+    'hourly hourly hourly'
+    'days days days';
 }
 /* Current Time */
 .current-CT {
@@ -27,12 +30,12 @@
     margin-top: 15px;
     padding: 10px;
 }
+
 /* Current Weather */
 .current-CW {
     grid-area: currentW;
     margin-left: auto;
     padding: 10px;
-
 }
 /* Hourly prediction */
 .contain-Hourly {
@@ -53,9 +56,11 @@
 .inline {
     display: inline-block;
 }
-
 .padding {
     min-width: 42px;
+}
+#screenRead {
+    display: none;
 }
 
  /* Background for all containers. */
@@ -70,29 +75,17 @@
         background: hsl(0 0% 100% / .5);
         backdrop-filter: blur(1rem);
     }
-    section {
+    #Selection {
         background: rgba(2, 2, 2, 0.1);
         backdrop-filter: blur(1rem);
     }
 }
 
 /* Add City pop up box mobile, input box show desktop*/
-section {
-    position: fixed;
-    inset: 15px 15px 15px 20%;
-    border-radius: 5px;
-    background: hsl(0 0% 0% / .8);
-    padding: 15px;
-    display: none;
-}
-form {
-    margin-top: 20px;
-    color: white;
-}
-
+/*button opens selection box*/
 #myButton-Open {
-    --b: 3.2px; /* the thickness of symbol created */
-    width: 32px; /* the size of border around and including symbol */
+    --b: calc(3.2px + .25vmax); /* the thickness of symbol created */
+    width: calc(32px + 1vmax); /* the size of border around and including symbol */
     aspect-ratio: 1; /* calls height to be same as width. */
     border: 10px solid #000; /* the outer space */
     border-radius: 50%; /* made it a circular button */
@@ -106,94 +99,169 @@ form {
     opacity: .75;
     transform: rotate(45deg);
 }
-/*media full screens for portable devices.*/
-
-@media (min-width: 320px) and (min-height: 480px){
-    .contain-Weather {
-        grid-gap: 40px;
-    }
+/*city selection box*/
+#Selection {
+    position: fixed;
+    inset: 0px 0px 0px 15%;
+    border-radius: 0 0 0 5px;
+    background: hsl(0 0% 0% / .8);
+    padding: 15px;
+    display: none;
+}
+/*Form input field*/
+#user-Selected {
+    margin-top: calc(32px + 1vmax);
+}
+/*Label 'Add a City' */
+#city {
+    color: white;
+    font-size: 32px;
+}
+/*City Input box*/
+#city-Input {
+    font-size: 16px;
+    margin-right: 10px;
+}
+#city, #city-Input {
+    display: block;
+}
+/*Submit button and Clear localstorage button*/
+#city-btn, #clear {
+    font-size: 16px;
+}
+#city-Input, #city-btn, #clear {
+    padding: 5px;
+}
+#city, #city-Input, #city-btn, #clear {
+    margin-bottom: 10px;
 }
 
-@media (min-width: 412px){
+/*It was play time down there.  Not complete understanding but I have to work to get there.*/
+/*Media screen for portable devices. No orientations added.  buncha weird stuff going on down below.*/
+@media (min-width: 320px){
     .contain-Weather {
-        grid-gap: 85px;
+        grid-gap: 3.5vmax; 
+    }
+    #Selection {
+        inset: 0px 0px 0px 25%;
+    }
+}
+/*this is my iphone setting for more understanding*/
+@media (min-width: 320px) and (max-height: 480px){
+    h1 {
+    font-size: calc(1rem + 3.5vmin);
+    }
+    h2 {
+    font-size: calc(.75rem + 3.5vmin);
+    }
+    h3 {
+    font-size: calc(.25rem + 3.5vmin);
+    }
+    p {
+    font-size: calc(.25rem + 3.5vmin);
+    }
+}
+@media (min-width: 360px){
+    #Selection {
+        inset: 0px 0px 0px 34%;
+    }
+}
+@media (min-width: 360px) and (min-height: 740px){
+    .contain-Weather {
+        grid-gap: 7vmax;
+    }
+    #Selection {
+        inset: 0px 0px 0px 34%;
+    }
+}
+@media (min-width: 390px) and (min-height: 844px){
+    .contain-Weather {
+        grid-gap: 10vmax;
     }
     #img-Change {
         background-position: center;        
-    }   
+    } 
+    #Selection {
+        inset: 0px 0px 0px 40%;
+    } 
 }
-
+@media (min-width: 500px){
+    #Selection {
+        inset: 0px 0px 0px 50%;
+    }
+}
 @media (min-width: 600px){
-    /* button {
-        display: none;
-    }
-    section {
-        display: block;
-    } */
     .contain-Weather {
-        grid-gap: 95px;
+        grid-gap: 4vmax;
     }
-    .current-CT {
-        margin-top: 30px;
+    #Selection {
+        inset: 0px 0px 0px 60%;
     }
 }
-
 @media (min-width: 800px){
     .contain-Weather {
-        grid-gap: 110px;
+        grid-gap: 7vmax
     }
-    .current-CT {
-        margin-top: 45px;
+    #Selection {
+        inset: 0px 0px 0px 70%;
     }
 }
-
+/* Less than one ratio screens start here */
 @media (min-width: 1024px) and (min-height: 600px){
     #img-Change {
-        background-position: 0 20%;        
-    }  
-    .contain-Weather {
-        grid-gap: 50px;
+        background-position: 0 20%;
     }
-    .current-CT {
-        margin-top: 20px;
+    h1 {
+        font-size: calc(1rem + 3.5vmin);
+    }
+    h2 {
+        font-size: calc(.75rem + 3.5vmin);
+    }
+    h3 {
+        font-size: calc(.25rem + 3.5vmin);
+    }
+    p {
+        font-size: calc(.25rem + 3.5vmin);
     }
     .contain-Weather {
-        grid-gap: 30px;
+        display: grid;
+        grid-template-columns: repeat(3);
+        grid-gap: 8vmax;
+        grid-template-areas:
+            'currentT currentT currentT'
+            'currentW hourly hourly'
+            'days days days';
     }
     .current-CW {
-        margin-left: 0;
+        margin: 0;
         margin-right: auto;
-        padding: 10px;
     }
     .contain-Hourly {
         padding: 10px;
         margin-left: auto;
     }
-
-    * {
-        font-size: 2vw;
-    }
-    h1 {
-        font-size: 4vw;
-    }
-    
-    h2 {
-        font-size: 2.5vw;
-    }
-    
-    h3 {
-        font-size: 2vw;
+    #Selection {
+        inset: 0px 0px 0px 77%;
     }
 }
-
-@media (min-width: 1280px) and (max-height: 850){
-
+@media (min-width: 1024px) and (min-height: 1366px){
+    .contain-Weather {
+        grid-gap: 4.5vmax;
+    }
+    .current-CT {
+        margin-top: 45px;
+    }
+    #Selection {
+        inset: 0px 0px 0px 77%;
+    }
 }
-
 @media (min-width: 1280px){
-
     #img-Change {
         background-position: 0 20%;
     }
-
+    .current-CT {
+        margin-top: 40px;
+    }
 }
+
+/* zMaG33z */

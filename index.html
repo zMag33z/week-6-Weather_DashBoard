@@ -11,12 +11,14 @@
 
     <div id="img-Change">
 
+
         <div class="contain-Weather">
 
             <div class="current-CT myContainerBG">
                 <h1 class="location">City, ST</h1>
                 <p id="time">TI:ME:TI me</p>
             </div>
+
 
             <div class="current-CW myContainerBG">
                 <h2 id="current">Currently:</h2>
@@ -91,25 +93,30 @@
                     <p class="inline strong">Low</p>
                 </div>
             </div>
-        </div>
-        
+
+        </div><!--Close contain-Weather-->
+
 <!--Though located on top, this has to be down here, to be on top of everything else-->
-        <section id="city-Selection">
-            <form id="user-selected" class="selection">
-                <label for="CitySelection">Add a City</label>
-                <input id="city" type="text" autocomplete="on" required>
+        <section id="Selection" aria-expanded="false">
+            <form id="user-Selected" class="selected">
+                <label id="city" for="CitySelection">Add a City&nbsp;</label>
+                <input id="city-Input" type="text" autocomplete="on" required>
                 <input id="city-btn" type="submit" value="Submit">
               </form>
 <!--City list to be created and appended by javascript-->
 <!--Button to erase local storage-->
               <button id="clear">Clear City/Cities</button>
         </section>
+
 <!--Button opens city add section-->        
-        <button id="myButton-Open"></button>
+        <button aria-controls="Selection" id="myButton-Open">
+            <span id="screenRead">Menu</span>
+        </button>
 
-    </div>
-
+    </div><!--Close img-Change-->
 
     <script src="./script.js"></script>
 </body>
 </html>
+
+<!--zMaG33z-->

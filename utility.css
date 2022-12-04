@@ -1,4 +1,4 @@
-/* root variable directory !special */
+/* root variable directory !special 'not used atm future use'*/
 :root {
     --myBG: rgb(255, 255, 255);
 }
@@ -7,24 +7,22 @@
 * {
     margin: 0;
     padding: 0;
-    font-size: 2vh;
-
 }
 
-
-/* separating the heading points from the classes */
+/* created beginning variable font sizes */
 body, html {
     height: 100%;
+    overflow-x: hidden;
 }
-
 h1 {
-    font-size: 5.9vh;
+    font-size: calc(1rem + 5vmin);
 }
-
 h2 {
-    font-size: 3.0vh;
+    font-size: calc(.75rem + 5vmin);
 }
-
 h3 {
-    font-size: 2.5vh;
+    font-size: calc(.25rem + 5vmin);
+}
+p {
+    font-size: calc(.25rem + 5vmin);
 }
