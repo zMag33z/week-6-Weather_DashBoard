@@ -1,4 +1,6 @@
+/*https://coding-boot-camp.github.io/full-stack/apis/how-to-use-api-keys*/
 /*Openweathermap.org*/
+
 
 /* target variables*/
 const selectionBox = document.getElementById('Selection');
@@ -18,44 +20,39 @@ toggleMenu.addEventListener('click', function(){
         toggleMenu.setAttribute('aria-expanded', false);
         selectionBox.setAttribute('aria-expanded', false);
     }
-})
+});
+
+const citySubmit = document.getElementById('city-btn');
+const cityInput = document.querySelector('#city-Input').value;
+
+citySubmit.addEventListener('submit', function(event) {
+    console.log("YOU CLICKED IT!");
+    event.preventDefault();
+
+    // if(localStorage.getItem('cities') == null){
+    //     localStorage.setItem('cities', `[]`);
+    // }
+
+    // let city = cityInput;
+
+    // let previousCities = JSON.parse(localStorage.getItem('cities'));
+    // previousCities.push(city);
+    // localStorage.setItem('cities', JSON.stringify(previousCities));
+});
+
+// let citySearch = json.parse(localStorage.getItem('cities'[0]));
+// let myKey = 'appid=002e02371bc693eda7b161253481e4e0';
+// let geoUrl = 'http://api.openweathermap.org/geo/1.0/direct?';
+// let cityCountry = 'q=' + citySearch + ',US';
+// let limitCity = '&limit=5';
+// let cityFile = geoUrl + cityCountry + limitCity + myKey;
 
 
+//city state lon lat http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}
+//weather http://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
+//geoloc http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}
 
-
-// var citySelection;
-
-
-//api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
-
-
-
-// var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + citySelection + "&appid=" + WeatherKey;
-
-
-
-
-
-
-
-
-
-
-
-
-
-//if(depending on weather output change image accordingly)
-// constmediaQuery = window.matchMedia('(whatever the width call is ex: min-width- 600px)')
-// if(mediaQuery.matches){
-//     //do this stuff
-// }
-
-
-
-
-
-
-
+//ISO 3166-2:US
 
 
 
@@ -68,6 +65,26 @@ toggleMenu.addEventListener('click', function(){
 
 
 
-// https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
