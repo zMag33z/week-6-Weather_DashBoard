@@ -24,7 +24,7 @@
     'currentW currentW currentW'
     'hourly hourly hourly'
     'days days days';
-    align-content: center;
+    align-items: center;
 }
 /* Current Time */
 .current-CT {
