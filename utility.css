@@ -11,7 +11,7 @@
 
 /* created beginning variable font sizes */
 body, html {
-    height: 100%;
+    min-height: 100%;
     overflow-x: hidden;
 }
 h1 {
