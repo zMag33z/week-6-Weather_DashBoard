@@ -23,6 +23,7 @@
                 <h2 id="current">Currently:</h2>
                 <p id="weather">Snow</p>
                 <p id="temp">34°F</p>
+                <p>Wind Speed</p>
                 <p>Pressure:&nbsp;&nbsp;<span id="pressure"></span></p>
                 <p>Humidity:&nbsp;&nbsp;<span id="humidity"></span></p>
             </div>            
@@ -95,24 +96,25 @@
 
         </div><!--Close contain-Weather-->
 
-<!--Though located on top, this has to be down here, to be on top of everything else.  could fix it with zindex-->
-        <section id="Selection" data-visible="false" aria-expanded="false">
-            <form id="user-Selected" class="selected">
-                <label id="city" for="CitySelection">Add a City&nbsp;</label>
-                <input id="city-Input" type="text" onclick="this.select()" autocomplete="off" required>
-                <input id="city-btn" type="submit">
-              </form>
+    </div><!--Close img-Change-->
+
+    <!--Though located on top, this has to be down here, to be on top of everything else.  could fix it with zindex-->
+    <section id="Selection" data-visible="false" aria-expanded="false">
+        <form id="user-Selected" class="selected">
+            <label id="city" for="CitySelection">Add a City&nbsp;</label>
+            <input id="city-Input" type="text" onclick="this.select()" autocomplete="off" required>
+            <input id="city-btn" type="submit">
+          </form>
 <!--City list to be created and appended by javascript-->
+          <div id="list-City-Search"></div>
 <!--Button to erase local storage-->
-              <button id="clear">Clear City/Cities</button>
-        </section>
+          <button id="clear">Clear City/Cities</button>
+    </section>
 
 <!--Button opens city add section-->        
-        <button  id="myButton-OpenClose" aria-controls="Selection" data-turn="false" aria-expanded="false">
-            <span id="screenRead">Menu</span>
-        </button>
-
-    </div><!--Close img-Change-->
+    <button  id="myButton-OpenClose" aria-controls="Selection" data-turn="false" aria-expanded="false">
+        <span id="screenRead">Menu</span>
+    </button>
 
 </body>
 </html>

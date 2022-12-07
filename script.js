@@ -7,54 +7,55 @@
 /*5Day/3Hour forecast API:  api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}*/
 /*Current Weather API:  https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}*/
 //ISO 3166-2:US
+const myKey = '&appid=002e02371bc693eda7b161253481e4e0';
 
 
 /* target variables*/
+const bgImage = document.getElementById('img-Change');
 const selectionBox = document.getElementById('Selection');
 const toggleMenu = document.getElementById('myButton-OpenClose');
 const citySubmit = document.getElementById('user-Selected');
 const cityInput = document.querySelector('#city-Input');
+const listCitySearch = document.getElementById('list-City-Search');
 const clearStorage = document.getElementById('clear');
+var cityList; /*claimed up here to be used in another function*/
 
+/*Opening with no localstorage*/
+window.onload = function(){
+    bgImage.setAttribute('style', 'display: none;');
+
+    if(localStorage.getItem('cities') == null){
+        cityMenu(); 
+    }else{
+        bgImage.setAttribute('style', 'display: block;');
+        cityHistory();
+    }
+}
 
 /*Click event Open City Selection Window*/
 toggleMenu.addEventListener('click', function set(){
-    closeMenu();
+    cityMenu();
 });
 
 /*Click event clear City localstorage*/
 citySubmit.addEventListener('submit', function(e) {
     e.preventDefault();
-    closeMenu();
-/*If localstorage empty create object holder*/
-    if(localStorage.getItem('cities') == null){
-        localStorage.setItem('cities', `[]`);
-    }
-/*Pull localstorage*/
-    let previousCities = JSON.parse(localStorage.getItem('cities'));
+    cityMenu();
     let city = cityInput.value;
-    let sameCity = city;
-/*Filter storage for any repeats*/
-    function removeMatchingCity(arr, value){
-        return arr.filter(function(element){
-            return element != value;  /*if not equal to a repeat return to array*/
-        })
-    }
+    getCityInfo(city);
+    bgImage.setAttribute('style', 'display: block;');   /*background images shows after city selection*/
 
-    let noMatchingCities = removeMatchingCity(previousCities, sameCity);
-    noMatchingCities.unshift(city);
-    localStorage.setItem('cities', JSON.stringify(noMatchingCities));
 });
 
-/*Clear cities from localstorage.*/
+/*Click event Clear cities from localstorage.*/
 clearStorage.addEventListener('click', function(){
     localStorage.removeItem('cities');
 });
 
 /*Function is two way. Opens and closes menu while changing attribute values*/
 /*Run by two eventlisteners- toggleMenu and citySubmit*/
-function closeMenu(){
-    const openMenu = selectionBox.getAttribute('data-visible');
+function cityMenu(){
+    const openMenu = selectionBox.getAttribute('data-visible'); /*elements have data values to be changed and this one actually opens the city search*/
     toggleMenu.getAttribute('aria-expanded');
     if(openMenu === 'false'){
         selectionBox.setAttribute('data-visible', true);
@@ -67,12 +68,72 @@ function closeMenu(){
     }
 }
 
-let citySearch = JSON.parse(localStorage.getItem('cities'));
-let myKey = '&appid=002e02371bc693eda7b161253481e4e0';
-let geoUrl = 'http://api.openweathermap.org/geo/1.0/direct?';
-let cityCountry = 'q=' + citySearch[0] + ',US';
-let limitCity = '&limit=1';
+/*Search for City coordinates.  Also changes input to City State info from key for storage*/
+let getCityInfo = function(city){
+    let geoUrl = 'http://api.openweathermap.org/geo/1.0/direct?';
+    let cityCountry = 'q=' + city + ',US';
+    let limitCity = '&limit=1';
+    let url = geoUrl + cityCountry + limitCity + myKey;
 
-let getCoords = geoUrl + cityCountry + limitCity + myKey;
+    console.log(url);
+    fetch(url)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+
+        let cityState = data[0].name + ', ' + data[0].state;
+        let lat = data[0].lat;
+        let lon = data[0].lon;
+        console.log(data);
+        console.log(cityState, 'search');
+        cityStorage(cityState);
+    });
+
+}
+
+/*LocalStorage function to save searched cities*/
+function cityStorage(cityState){
+    if(localStorage.getItem('cities') == null){  /*If localstorage empty create object holder*/
+    localStorage.setItem('cities', `[]`);
+}
+
+let previousCities = JSON.parse(localStorage.getItem('cities')); /*Pull localstorage*/
+
+console.log(cityState, 'storage');
+let sameCity = cityState;
+
+function removeMatchingCity(arr, value){ /*Filter storage for any repeats*/
+    return arr.filter(function(element){
+
+        return element != value;  /*if not equal to a repeat return to array*/
+    })
+}
+let noMatchingCities = removeMatchingCity(previousCities, sameCity);/*variable is the function above of a return array*/
+
+    noMatchingCities.unshift(cityState); /*unshift used to keep last city added at 0 index*/
+    localStorage.setItem('cities', JSON.stringify(noMatchingCities));/*placing the changed array back into localstorage*/
+cityHistory();
+
+}
+
+/*Append city search history*/
+function cityHistory(){
+    while(listCitySearch.firstChild){   /*removes previous appended cities in history*/
+        listCitySearch.removeChild(listCitySearch.firstChild);
+    }
+
+    let cityRecord = JSON.parse(localStorage.getItem('cities'));
+
+    for(let i = 0; i < cityRecord.length; i++){ /*appends new cities based on localstorage*/
+        cityList = document.createElement('p');
+        cityList.classList.add('myP');
+        cityList.innerHTML = cityRecord[i];
+        listCitySearch.append(cityList);
+        localStorage.setItem('cities', JSON.stringify(cityRecord)); /*can you comment back? do i have to put storage back?  i couldnt find an answer.  i'm sure i only have to when changing the values.*/
+    }
+}
+
+
 
 

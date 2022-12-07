@@ -11,6 +11,7 @@
 
 /* created beginning variable font sizes */
 body, html {
+    background: rgb(28, 28, 28);
     min-height: 100%;
     overflow-x: hidden;
 }

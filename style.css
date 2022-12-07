@@ -130,6 +130,7 @@
 #city-Input {
     font-size: 16px;
     margin-right: 10px;
+    text-transform: capitalize;
 }
 #city, #city-Input {
     display: block;
@@ -144,7 +145,14 @@
 #city, #city-Input, #city-btn, #clear {
     margin-bottom: 10px;
 }
-
+.myP {
+    font-size: 16px;
+    color: white;
+    padding: 5px;
+    border-color: white;
+    border: 2px;
+    text-transform: capitalize;
+}
 /*It was play time down there.  Not complete understanding but I have to work to get there. But is responsive to most sizes. */
 /*Media screen for portable devices. No orientations added.  Buncha weird stuff going on down below.  Need more time to dabble and understand. */
 /*Was trying to separate 320x480 from 320x568 but 568 would still push its grid gap. ?? */
@@ -238,7 +246,7 @@
     .contain-Weather {
         display: grid;
         grid-template-columns: repeat(3);
-        grid-gap: 8vmax;
+        grid-gap: 4vmin;
         grid-template-areas:
             'currentT currentT currentT'
             'currentW hourly hourly'
@@ -260,9 +268,6 @@
     .contain-Weather {
         grid-gap: 4.5vmax;
     }
-    .current-CT {
-        margin-top: 45px;
-    }
     #Selection {
         inset: 0px 0px 0px 77%;
     }
@@ -271,9 +276,7 @@
     #img-Change {
         background-position: 0 20%;
     }
-    .current-CT {
-        margin-top: 40px;
-    }
+
 }
 
 /* zMaG33z */
