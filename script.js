@@ -75,7 +75,7 @@ let getCityInfo = function(city){
     let limitCity = '&limit=1';
     let url = geoUrl + cityCountry + limitCity + myKey;
 
-    console.log(url);
+
     fetch(url)
     .then(function (response) {
       return response.json();
@@ -85,8 +85,6 @@ let getCityInfo = function(city){
         let cityState = data[0].name + ', ' + data[0].state;
         let lat = data[0].lat;
         let lon = data[0].lon;
-        console.log(data);
-        console.log(cityState, 'search');
         cityStorage(cityState);
     });
 
