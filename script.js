@@ -70,7 +70,7 @@ function cityMenu(){
 
 /*Search for City coordinates.  Also changes input to City State info from key for storage*/
 let getCityInfo = function(city){
-    let geoUrl = 'http://api.openweathermap.org/geo/1.0/direct?';
+    let geoUrl = 'https://api.openweathermap.org/geo/1.0/direct?';
     let cityCountry = 'q=' + city + ',US';
     let limitCity = '&limit=1';
     let url = geoUrl + cityCountry + limitCity + myKey;
